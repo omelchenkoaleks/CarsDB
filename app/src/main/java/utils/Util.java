@@ -4,7 +4,7 @@ package utils;
     константы будут нужны, чтобы при их помощи манипулировать данными
  */
 public class Util {
-    private static final int DATABASE_VERSION = 1;
+    public static final int DATABASE_VERSION = 1;
     public static final String DATABASE_NAME = "carsDB";
     public static final String TABLE_NAME = "cars";
 
