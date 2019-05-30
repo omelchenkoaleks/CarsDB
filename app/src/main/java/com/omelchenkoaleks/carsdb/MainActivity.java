@@ -20,30 +20,24 @@ public class MainActivity extends AppCompatActivity {
         // СОЗДАЕМ ОБЪЕКТ, КОТОРЫЙ УПРАВЛЯЕТ БАЗОЙ ДАННЫХ
         DataBaseHandler dataBaseHandler = new DataBaseHandler(this);
 
-//        // С ПОМОЩЬЮ ЭТОГО ОБЪЕКТА ДОБАВЛЯЕМ В БАЗУ ДАННЫЕ
-//        dataBaseHandler.addCar(new Car("Toyota", "30 000 $"));
-//        dataBaseHandler.addCar(new Car("Opel", "25 000 $"));
-//        dataBaseHandler.addCar(new Car("Mercedes", "50 000 $"));
-//        dataBaseHandler.addCar(new Car("KIA", "28 000 $"));
-//
-//        // СОЗДАЕМ ПУСТОЙ СПИСОК, В КОТОРЫЙ ИЗВЛЕКАЕМ ВСЕ ЗАПИСИ ИЗ db
-//        List<Car> carList = dataBaseHandler.getAllCars();
-//
-//        // ВЫВОДИМ В ЖУРНАЛ ВСЕ ЧТО НАХОДИТСЯ В ЭТОМ ЛИСТЕ
-//        for (Car car : carList) {
-//            Log.d("Info", "ID: " + car.getId()
-//                    + " NAME: " + car.getName() + " PRICE: " + car.getPrice());
-//        }
+        // СОЗДАЕМ ПУСТОЙ СПИСОК, В КОТОРЫЙ ИЗВЛЕКАЕМ ВСЕ ЗАПИСИ ИЗ db
+        List<Car> carList = dataBaseHandler.getAllCars();
 
-        Car car = dataBaseHandler.getCar(7);
+        // ВЫВОДИМ В ЖУРНАЛ ВСЕ ЧТО НАХОДИТСЯ В ЭТОМ ЛИСТЕ
+        for (Car car : carList) {
+            Log.d("happy", "ID: " + car.getId()
+                    + " NAME: " + car.getName() + " PRICE: " + car.getPrice());
+        }
 
-        car.setName("Tesla");
-        car.setPrice("60 000 $");
+        Car deletingCar = dataBaseHandler.getCar(2);
+        dataBaseHandler.deleteCar(deletingCar);
 
-        dataBaseHandler.updateCar(car);
+        // ВЫВОДИМ В ЖУРНАЛ ВСЕ ЧТО НАХОДИТСЯ В ЭТОМ ЛИСТЕ
+        for (Car car : carList) {
+            Log.d("happy", "ID: " + car.getId()
+                    + " NAME: " + car.getName() + " PRICE: " + car.getPrice());
+        }
 
-        Log.d("Info:", "ID " + car.getId() + ", NAME " + car.getName()
-                + ", PRICE " + car.getPrice());
-
+//        Log.e("happy", "ID " + deletingCar.getId() + ", NAME " + deletingCar.getName() + ", PRICE " + deletingCar.getPrice());
     }
 }
