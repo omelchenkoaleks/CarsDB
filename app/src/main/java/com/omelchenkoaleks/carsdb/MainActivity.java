@@ -20,6 +20,8 @@ public class MainActivity extends AppCompatActivity {
         // СОЗДАЕМ ОБЪЕКТ, КОТОРЫЙ УПРАВЛЯЕТ БАЗОЙ ДАННЫХ
         DataBaseHandler dataBaseHandler = new DataBaseHandler(this);
 
+        Log.i("happy", String.valueOf(dataBaseHandler.getCarsCount()));
+
         // СОЗДАЕМ ПУСТОЙ СПИСОК, В КОТОРЫЙ ИЗВЛЕКАЕМ ВСЕ ЗАПИСИ ИЗ db
         List<Car> carList = dataBaseHandler.getAllCars();
 

@@ -5,7 +5,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.widget.LinearLayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -138,5 +137,13 @@ public class DataBaseHandler extends SQLiteOpenHelper {
                 new String[] {String.valueOf(car.getId())});
 
         db.close();
+    }
+
+    // возвращает количество всех записей
+    public int getCarsCount() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String countQuery = "SELECT * FROM " + Util.TABLE_NAME;
+        Cursor cursor = db.rawQuery(countQuery, null);
+        return cursor.getCount();
     }
 }
