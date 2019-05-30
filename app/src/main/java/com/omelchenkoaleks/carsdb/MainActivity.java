@@ -35,7 +35,15 @@ public class MainActivity extends AppCompatActivity {
 //                    + " NAME: " + car.getName() + " PRICE: " + car.getPrice());
 //        }
 
-        Car car = dataBaseHandler.getCar(20);
-        Log.d("Info:", "ID " + car.getId() + ", NAME " + car.getName() + ", PRICE " + car.getPrice());
+        Car car = dataBaseHandler.getCar(7);
+
+        car.setName("Tesla");
+        car.setPrice("60 000 $");
+
+        dataBaseHandler.updateCar(car);
+
+        Log.d("Info:", "ID " + car.getId() + ", NAME " + car.getName()
+                + ", PRICE " + car.getPrice());
+
     }
 }

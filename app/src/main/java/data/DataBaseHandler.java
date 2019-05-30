@@ -60,7 +60,7 @@ public class DataBaseHandler extends SQLiteOpenHelper {
         // объект этого класса позволит перемещаться по db
         Cursor cursor = db.query(
                 Util.TABLE_NAME,
-                new String[] {Util.KEY_ID, Util.KEY_PRICE, Util.KEY_PRICE,},
+                new String[] {Util.KEY_ID, Util.KEY_NAME, Util.KEY_PRICE,},
                 Util.KEY_ID + "=?",
                 new String[] {String.valueOf(id)},
                 null, null, null, null);
@@ -112,5 +112,22 @@ public class DataBaseHandler extends SQLiteOpenHelper {
         }
 
         return carsList;
+    }
+
+    /*
+        при обновлении записи возвращается id этой записи, поэтому тип метода int
+
+        эта запись Util.KEY_ID + "=?" указывает куда мы будем помещать информацию (по id)
+     */
+    public int updateCar(Car car) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(Util.KEY_NAME, car.getName());
+        contentValues.put(Util.KEY_PRICE, car.getPrice());
+
+        // при вызове метода возвращается id записи, которая обновляется
+        return db.update(Util.TABLE_NAME, contentValues, Util.KEY_ID + "=?",
+                new String[] {String.valueOf(car.getId())});
     }
 }
