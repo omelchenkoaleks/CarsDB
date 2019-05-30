@@ -60,7 +60,7 @@ public class DataBaseHandler extends SQLiteOpenHelper {
         // объект этого класса позволит перемещаться по db
         Cursor cursor = db.query(
                 Util.TABLE_NAME,
-                new String[] {Util.KEY_ID, Util.TABLE_NAME, Util.KEY_PRICE,},
+                new String[] {Util.KEY_ID, Util.KEY_PRICE, Util.KEY_PRICE,},
                 Util.KEY_ID + "=?",
                 new String[] {String.valueOf(id)},
                 null, null, null, null);
